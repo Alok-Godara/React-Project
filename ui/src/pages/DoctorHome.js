@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/Dashboard.css';
 import '../styles/DoctorDashboard.css';
 
 const DoctorHome = () => {
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
   const [activeContent, setActiveContent] = useState('dashboard');
-  const [darkMode, setDarkMode] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
   
   // Mock data for patients
@@ -71,12 +72,6 @@ const DoctorHome = () => {
     }
   ]);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    // Apply dark mode to the body
-    document.body.classList.toggle('dark-mode', !darkMode);
-  };
-  
   const handleLogout = () => {
     // In a real app, you would clear authentication tokens/cookies here
     navigate('/');
@@ -172,9 +167,6 @@ const DoctorHome = () => {
           <div className="profile-content">
             <h2>Your Profile</h2>
             <div className="profile-info">
-              <div className="profile-avatar">
-                <span>JD</span>
-              </div>
               <div className="profile-details">
                 <div className="profile-field">
                   <label>Name</label>
@@ -323,8 +315,7 @@ const DoctorHome = () => {
           >
             Patients
           </li>
-          <li>Appointments</li>
-          <li>Messages</li>
+
           <li 
             className={activeContent === 'profile' ? 'active' : ''} 
             onClick={() => setActiveContent('profile')}
@@ -336,9 +327,6 @@ const DoctorHome = () => {
             onClick={() => setActiveContent('settings')}
           >
             Settings
-          </li>
-          <li className="theme-toggle" onClick={toggleTheme}>
-            {darkMode ? 'Light Mode ☀️' : 'Dark Mode 🌙'}
           </li>
           <li className="logout" onClick={handleLogout}>Logout</li>
         </ul>

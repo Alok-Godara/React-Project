@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/Auth.css';
 
 const PatientAuth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const toggleAuthMode = () => {
     setIsLogin(!isLogin);
@@ -23,7 +25,7 @@ const PatientAuth = () => {
   };
 
   return (
-    <div className="auth-container">
+    <div className={`auth-container ${darkMode ? 'dark-theme' : ''}`}>
       <div className="auth-card">
         <h2 className="auth-title">{isLogin ? 'Patient Login' : 'Patient Sign Up'}</h2>
         

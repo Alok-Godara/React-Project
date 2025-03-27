@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/Dashboard.css';
 import '../styles/PatientDashboard.css';
 
 const PatientHome = () => {
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
   const [activeContent, setActiveContent] = useState('dashboard');
-  const [darkMode, setDarkMode] = useState(false);
   const [uploadType, setUploadType] = useState(null);
   
   // Mock data for scanned documents
@@ -17,12 +18,6 @@ const PatientHome = () => {
     { id: 4, name: 'Prescription', date: '2023-08-22', type: 'Image' },
   ]);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    // Apply dark mode to the body
-    document.body.classList.toggle('dark-mode', !darkMode);
-  };
-  
   const handleLogout = () => {
     // In a real app, you would clear authentication tokens/cookies here
     navigate('/');
@@ -176,9 +171,6 @@ const PatientHome = () => {
           <div className="profile-content">
             <h2>Your Profile</h2>
             <div className="profile-info">
-              <div className="profile-avatar">
-                <span>JS</span>
-              </div>
               <div className="profile-details">
                 <div className="profile-field">
                   <label>Name</label>
@@ -321,9 +313,6 @@ const PatientHome = () => {
             onClick={() => setActiveContent('settings')}
           >
             Settings
-          </li>
-          <li className="theme-toggle" onClick={toggleTheme}>
-            {darkMode ? 'Light Mode ☀️' : 'Dark Mode 🌙'}
           </li>
           <li className="logout" onClick={handleLogout}>Logout</li>
         </ul>

@@ -69,4 +69,33 @@
 
 .agree-button:hover {
   background-color: #3a7bc8;
+}
+
+/* Dark theme support */
+.dark-theme.terms-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+
+.dark-theme .terms-card {
+  background-color: #16213e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .terms-title,
+.dark-theme .terms-content h3,
+.dark-theme .terms-content h4 {
+  color: #e5e5e5;
+}
+
+.dark-theme .terms-content {
+  background-color: #1f2b47;
+  border-color: #2a2a4a;
+}
+
+.dark-theme .terms-section p {
+  color: #bbb;
+}
+
+.dark-theme .terms-section {
+  border-bottom-color: #2a2a4a;
 } 

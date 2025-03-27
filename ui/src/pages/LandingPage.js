@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const handleDoctorClick = () => {
     navigate('/doctor-auth');
@@ -14,7 +16,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-container">
+    <div className={`landing-container ${darkMode ? 'dark-theme' : ''}`}>
       <div className="landing-content">
         <h1 className="app-title">Project-H</h1>
         <p className="app-subtitle">Healthcare at your fingertips</p>

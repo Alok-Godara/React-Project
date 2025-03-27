@@ -74,4 +74,26 @@
   .role-button {
     min-width: 150px;
   }
-} 
+}
+
+/* Dark theme support */
+.dark-theme.landing-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+
+.dark-theme .landing-content {
+  background-color: #16213e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .app-title {
+  color: #e5e5e5;
+}
+
+.dark-theme .app-subtitle {
+  color: #aaa;
+}
+
+.dark-theme .role-button {
+  /* Keep the existing button colors, they look good in both modes */
+}

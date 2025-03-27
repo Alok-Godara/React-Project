@@ -105,4 +105,53 @@
 .back-button:hover {
   background-color: #f5f5f5;
   color: #333;
+}
+
+/* Dark theme support */
+.dark-theme.auth-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+}
+
+.dark-theme .auth-card {
+  background-color: #16213e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .auth-title {
+  color: #e5e5e5;
+}
+
+.dark-theme .form-group label {
+  color: #e5e5e5;
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group select {
+  background-color: #1f2b47;
+  border-color: #2a2a4a;
+  color: #e5e5e5;
+}
+
+.dark-theme .form-group input:focus,
+.dark-theme .form-group select:focus {
+  border-color: #4a90e2;
+}
+
+.dark-theme .auth-toggle {
+  color: #aaa;
+}
+
+.dark-theme .toggle-link {
+  color: #4a90e2;
+}
+
+.dark-theme .back-button {
+  background-color: transparent;
+  color: #e5e5e5;
+  border-color: #2a2a4a;
+}
+
+.dark-theme .back-button:hover {
+  background-color: #0f3460;
+  color: #e5e5e5;
 } 

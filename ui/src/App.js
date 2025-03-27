@@ -6,11 +6,17 @@ import PatientAuth from './pages/PatientAuth';
 import TermsAndConditions from './pages/TermsAndConditions';
 import DoctorHome from './pages/DoctorHome';
 import PatientHome from './pages/PatientHome';
+import ThemeToggle from './components/ThemeToggle';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 
-function App() {
+// Wrapper component that adds the ThemeToggle to each route
+const AppContent = () => {
+  const { darkMode, setDarkMode } = useTheme();
+  
   return (
-    <Router>
-      <div className="App">
+    <>
+      <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className={`App ${darkMode ? 'dark-theme' : ''}`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/doctor-auth" element={<DoctorAuth />} />
@@ -20,7 +26,17 @@ function App() {
           <Route path="/patient-home" element={<PatientHome />} />
         </Routes>
       </div>
-    </Router>
+    </>
+  );
+};
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </ThemeProvider>
   );
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 import '../styles/TermsAndConditions.css';
 
 const TermsAndConditions = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { darkMode } = useTheme();
   const userType = location.state?.userType || 'user';
   
   const handleAgree = () => {
@@ -17,7 +19,7 @@ const TermsAndConditions = () => {
   };
 
   return (
-    <div className="terms-container">
+    <div className={`terms-container ${darkMode ? 'dark-theme' : ''}`}>
       <div className="terms-card">
         <h2 className="terms-title">Terms and Conditions</h2>
         
